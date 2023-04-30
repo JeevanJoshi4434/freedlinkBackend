@@ -32,13 +32,13 @@ app.use("/api",pagination);
 const server = app.listen(process.env.PORT, ()=>{
     console.log(`Server is running at https://${process.env.PORT}`)
 });
-if(process.env.SERVER==="PRODUCTION"){
-    app.use(express.static(path.join(__dirname,"../build")));
+// if(process.env.SERVER==="PRODUCTION"){
+//     app.use(express.static(path.join(__dirname,"../build")));
     
-    app.get("*",(req,res)=>{
-        res.sendFile(path.resolve(__dirname,"../build/index.html"));
-    })
-}
+//     app.get("*",(req,res)=>{
+//         res.sendFile(path.resolve(__dirname,"../build/index.html"));
+//     })
+// }
 const io = socket(server,{
     cors:{
         origin:process.env.FRONTENDPORT,
