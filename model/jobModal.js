@@ -1,0 +1,92 @@
+const mongoose = require('mongoose');
+
+const jobModal = new mongoose.Schema({
+    subject:{
+        type:String,
+        require:true
+    },
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+        req:true,
+    }
+    ,
+    title:{
+        type:String,
+        require:true
+    },
+    image:{
+        type:String
+    }
+    ,
+    description:{
+        type:String,
+        require:true
+    },
+    jobLike:{
+        type:Number
+    }
+    ,
+    jobPostedAt:{
+            type:Date,
+            default:Date.now()
+    },
+    country:{
+        type:String,
+        require:true
+    },
+    officeEmail:{
+        type:String,
+    },
+    CompanyName:{
+        type:String,
+    },
+    qualification:{
+        type:String
+    },
+    workExperience:{
+        type:Number
+    },
+    skills:[
+
+    ],
+    numOfEmployee:{
+        type:String,
+    },
+    routineType:{
+        type:String,
+    },
+    experienceAboveSector:{
+        type:Number
+    },
+    referenceCompanyName:{
+        type:String,
+    },
+    currentWork:{
+        type:String
+    },
+    Address:[{
+        country:{
+            type:String
+        },
+        state:{
+            type:String
+        },
+        City:{
+            type:String
+        }
+    }],
+    enrolled:[
+    ],
+    sortlist:[
+        
+    ],
+    visible:{
+        type:Boolean
+    },
+    link:{
+        type:String,
+        require:true
+    }
+},{timestamps:true})
+
+module.exports = mongoose.model("Jobs",jobModal);
